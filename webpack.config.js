@@ -20,6 +20,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 |
 */
 Encore.setOutputPath('./public/assets')
+Encore.enableReactPreset()
 
 /*
 |--------------------------------------------------------------------------

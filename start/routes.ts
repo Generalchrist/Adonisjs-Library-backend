@@ -20,6 +20,19 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+// Route.get('/books',() => {
+
+//   const books = Database.from('books').select('*')
+//   return books;
+  
+// })
+
+Route.get('/book', 'BooksController.get')
+Route.post('/book', 'BooksController.create')
+Route.put('/book', 'BooksController.update')
+Route.delete('/book', 'BooksController.delete')
+
+// login
+Route.post('/login', 'AuthController.login')
+
+
