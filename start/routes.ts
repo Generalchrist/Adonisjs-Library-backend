@@ -24,15 +24,22 @@ import Route from '@ioc:Adonis/Core/Route'
 
 //   const books = Database.from('books').select('*')
 //   return books;
-  
+
 // })
 
 Route.get('/book', 'BooksController.get')
 Route.post('/book', 'BooksController.create')
 Route.put('/book', 'BooksController.update')
-Route.delete('/book', 'BooksController.delete')
+Route.delete('/book/:id', 'BooksController.delete')
 
-// login
+
+
 Route.post('/login', 'AuthController.login')
+Route.post('/logout', 'AuthController.logout')
+Route.get('/isLoggedIn', 'AuthController.isLoggedIn')
+// Route.post('/register', 'AuthController.register')
+
+
+
 
 

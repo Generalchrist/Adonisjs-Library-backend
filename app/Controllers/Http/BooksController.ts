@@ -6,7 +6,7 @@ export default class BooksController {
     public async get({response}) {
         await BooksService.get({response})
     }
-
+    
     public async create({request}) {
         await BooksService.create({request})
     }
@@ -15,8 +15,8 @@ export default class BooksController {
         await BooksService.update({request})
     }
 
-    public async delete({request}) {
-        await BooksService.delete({request})
+    public async delete({params}) {
+        await BooksService.delete({params})
     }
 
 }
