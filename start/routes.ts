@@ -37,7 +37,9 @@ Route.delete('/book/:id', 'BooksController.delete')
 Route.post('/login', 'AuthController.login')
 Route.post('/logout', 'AuthController.logout')
 Route.get('/isLoggedIn', 'AuthController.isLoggedIn')
-// Route.post('/register', 'AuthController.register')
+Route.post('/register', 'AuthController.register')
+
+Route.get('/activityLogs', 'ActivityLogsController.getActivityLogs')
 
 
 

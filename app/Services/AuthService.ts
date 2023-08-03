@@ -1,6 +1,7 @@
 import User from 'App/Models/User'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Database from '@ioc:Adonis/Lucid/Database'
+import { DateTime } from 'luxon'
 // import { DateTime } from 'luxon'
 export default class AuthService {
 
@@ -22,29 +23,30 @@ export default class AuthService {
         const token = await auth.use('api').generate(user)
         token.type = 'bearer'
         token.expiresIn = 10 * 60
+        token.userId = user.id
         return response.json(token)
     }
 
 
-    // public static async register({ request , auth }) {
-    //     const requestUser = request.body()
-    //     const username = requestUser.username
-    //     const password = requestUser.password
+    public static async register({ request , auth }) {
+        const requestUser = request.body()
+        const username = requestUser.username
+        const password = requestUser.password
 
-    //     // Create user
-    //     const user = new User()
-    //     user.username = username
-    //     user.password = password
-    //     user.createdAt = DateTime.now()
-    //     user.updatedAt = DateTime.now()
+        // Create user
+        const user = new User()
+        user.username = username
+        user.password = password
+        user.createdAt = DateTime.now()
+        user.updatedAt = DateTime.now()
 
-    //     await user.save()
+        await user.save()
 
 
 
-    //     const token = await auth.use('api').generate(user)
-    //     token.type = 'bearer'
-    //     token.expiresIn = 30 * 60
-    //     return token
-    // }
+        const token = await auth.use('api').generate(user)
+        token.type = 'bearer'
+        token.expiresIn = 30 * 60
+        return token
+    }
 }

@@ -6,9 +6,9 @@ export default class AuthController {
         await AuthService.login({ request , response , auth })
     }
 
-    // public async register({ request , auth }) {
-    //     await AuthService.register({ request , auth })
-    // }
+    public async register({ request , auth }) {
+        await AuthService.register({ request , auth })
+    }
 
 
 }
